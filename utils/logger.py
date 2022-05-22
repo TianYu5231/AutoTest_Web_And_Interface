@@ -26,7 +26,7 @@ class Log(object):
 
         self.logger.setLevel(logging.DEBUG)
 
-        file_handler = logging.FileHandler(cm.log_file, encoding='utf-8')
+        file_handler = logging.FileHandler(cm.log_file[0], encoding='utf-8')
         file_handler.setLevel(logging.INFO)
 
         console_handler = logging.StreamHandler()

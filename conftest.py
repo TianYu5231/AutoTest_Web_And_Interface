@@ -4,16 +4,18 @@
 # @File: conftest.py
 # @Date: 2022/5/22 09:42
 # @SoftWare: PyCharm
+import os.path
+
 import allure
 import pytest
-from selenium import webdriver
 
+from config.conf import cm
 from utils.logger import log
 
 driver = None
 
 
-@pytest.hookimpl(hookwrapper=True)
+@pytest.hookimpl(hookwrapper=True, tryfirst=True)
 def pytest_runtest_makereport(item, call):
     out = yield
     report = out.get_result()
@@ -22,7 +24,10 @@ def pytest_runtest_makereport(item, call):
         log.info('测试报告: {}'.format(report))
         log.info('步骤: {}'.format(report.when))
         log.info('node_id: {}'.format(report.nodeid))
-        log.info('运行结果: {}'.format(report.outcome))
+        if report.failed:
+            log.error('运行结果: {}'.format(report.outcome))
+        else:
+            log.info('运行结果: {}'.format(report.outcome))
 
     if report.when == 'call' and report.failed:
         if hasattr(driver, 'get_screenshot_as_png'):
@@ -31,13 +36,8 @@ def pytest_runtest_makereport(item, call):
                 allure.attach(driver.get_screenshot_as_png(), '失败截图', allure.attachment_type.PNG)
 
 
-@pytest.fixture(scope='session')
-def browser():
-    """启动浏览器驱动"""
-    global driver
-    if driver is None:
-        driver = webdriver.Chrome()
-    yield driver
-    log.info('退出浏览器')
-    driver.quit()
-
+def pytest_configure(config):
+    """修改html报告路径"""
+    if config.getoption('--html'):
+        report_path = cm.log_file[1]
+        config.option.htmlpath = os.path.join(report_path, config.getoption('--html'))
