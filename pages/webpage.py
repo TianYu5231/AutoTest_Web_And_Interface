@@ -104,6 +104,10 @@ class WebPage(object):
         """判断title"""
         return EC.title_is(txt)(self.driver)
 
+    def title_contains(self, txt):
+        """是否包含title"""
+        return EC.title_contains(txt)(self.driver)
+
     def alert_is_present(self):
         """判断弹窗存在"""
         return EC.alert_is_present()(self.driver)

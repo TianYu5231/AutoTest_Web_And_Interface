@@ -24,13 +24,13 @@ class Log(object):
     def __init__(self):
         self.logger = logging.getLogger()
 
-        self.logger.setLevel(logging.DEBUG)
+        self.logger.setLevel(logging.INFO)
 
         file_handler = logging.FileHandler(cm.log_file[0], encoding='utf-8')
         file_handler.setLevel(logging.INFO)
 
         console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.DEBUG)
+        console_handler.setLevel(logging.INFO)
 
         file_formatter = logging.Formatter(self.file_fmt)
         file_handler.setFormatter(file_formatter)
