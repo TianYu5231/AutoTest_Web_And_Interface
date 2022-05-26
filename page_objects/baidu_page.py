@@ -18,6 +18,7 @@ class BaiduPage(WebPage):
     def click_search(self):
         """点击搜索"""
         self.to_click('id=su')
+        sleep()
 
-    def title_is(self, txt):
-        return self.title_is(txt)
+    def title_exist(self, txt):
+        return self.title_contains(txt)
