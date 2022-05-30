@@ -7,7 +7,6 @@
 import time
 
 import pytest
-from selenium import webdriver
 
 from common.readconfig import read_ini
 from page_objects.baidu_page import BaiduPage

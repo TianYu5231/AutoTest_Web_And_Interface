@@ -41,8 +41,3 @@ def pytest_configure(config):
     if config.getoption('--html'):
         report_path = cm.log_file[1]
         config.option.htmlpath = os.path.join(report_path, config.getoption('--html'))
-
-
-@pytest.fixture(scope='session')
-def screen():
-    print('测试')
