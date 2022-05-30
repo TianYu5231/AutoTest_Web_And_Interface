@@ -1,0 +1,7 @@
+# 存放数据库信息
+learnJDBC:
+  host: 127.0.0.1
+  db_name: learnJDBC
+  user_name: root
+  password: ty725530
+
