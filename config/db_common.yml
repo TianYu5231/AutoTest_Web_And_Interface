@@ -4,4 +4,5 @@ learnJDBC:
   db_name: learnJDBC
   user_name: root
   password: ty725530
+  port: 3306
 

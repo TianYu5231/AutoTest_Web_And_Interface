@@ -13,6 +13,16 @@ class ConfigManager(object):
     # 项目根目录
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+    # 失败截图目录
+    @property
+    def screen_path(self):
+        """截图目录"""
+        screen_dir = os.path.join(self.BASE_DIR, 'screen_capture')
+        if not os.path.exists(screen_dir):
+            os.makedirs(screen_dir)
+        screen_file = os.path.join(screen_dir, '{}.png'.format(t_strftime()))
+        return screen_file
+
     # 报告/日志
     @property
     def log_file(self):
