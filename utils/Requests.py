@@ -38,6 +38,3 @@ class Request(object):
 
 
 request = Request()
-if __name__ == '__main__':
-    res = request.get('https://api.apiopen.top/api/sentences')
-    print(res)

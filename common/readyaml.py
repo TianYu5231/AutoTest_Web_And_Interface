@@ -23,5 +23,3 @@ class ReadYaml(object):
 
 
 read_yaml = ReadYaml()
-if __name__ == '__main__':
-    print(read_yaml.load_yml()['learnJDBC'])

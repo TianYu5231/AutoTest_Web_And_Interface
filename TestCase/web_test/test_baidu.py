@@ -22,7 +22,7 @@ class TestBaidu(object):
         baidu_page = BaiduPage(drivers)
         baidu_page.input_search('python')
         baidu_page.click_search()
-        assert baidu_page.title_exist('python')
+        assert baidu_page.title_exist('ty')
 
 
 if __name__ == '__main__':

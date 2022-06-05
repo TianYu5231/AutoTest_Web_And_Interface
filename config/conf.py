@@ -48,6 +48,3 @@ class ConfigManager(object):
 
 
 cm = ConfigManager()
-if __name__ == '__main__':
-    print(cm.BASE_DIR)
-    print(cm.ini_file)

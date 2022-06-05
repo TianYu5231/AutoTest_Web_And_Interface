@@ -26,7 +26,3 @@ def t_strftime(fmt='%Y%m%d_%H%M%S'):
 
 def sleep(sec=1):
     time.sleep(sec)
-
-
-if __name__ == '__main__':
-    print(t_strftime())
