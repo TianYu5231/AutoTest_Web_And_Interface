@@ -48,5 +48,3 @@ class DBMysql(object):
 
 
 db_domain = DBMysql('learnJDBC')
-if __name__ == '__main__':
-    db_domain.query('select * from students')

@@ -29,5 +29,3 @@ class ReadConfig(object):
 
 
 read_ini = ReadConfig()
-if __name__ == '__main__':
-    print(read_ini.url)
